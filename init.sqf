@@ -37,7 +37,7 @@ if (!isDedicated) then
 {
 	[] spawn
 	{
-		9999 cutText ["Welcome to A3Wasteland, please wait for your client to initialize", "BLACK", 0.01];
+		9999 cutText ["Wilkommen zu Spacebin.Wasteland. Bitte warte bis dein Client fertig initialisiert ist.", "BLACK", 0.01];
 		
 		waitUntil {!isNull player};
 		removeAllWeapons player;
@@ -53,7 +53,7 @@ if (!isDedicated) then
 if (isServer) then
 {
 	diag_log format ["############################# %1 #############################", missionName];
-	diag_log "WASTELAND SERVER - Initializing Server";
+	diag_log "Spacebin.WASTELAND SERVER - Initializing Server";
 	[] execVM "server\init.sqf";
 };
 

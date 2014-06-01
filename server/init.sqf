@@ -36,9 +36,9 @@ diag_log "WASTELAND SERVER - Server Compile Finished";
 call compile preprocessFileLineNumbers "server\default_config.sqf";
 
 // load external config
-if (loadFile (externalConfigFolder + "\main_config.sqf") != "") then
+if (loadFile (externalConfigFolder + "/main_config.sqf") != "") then
 {
-    call compile preprocessFileLineNumbers (externalConfigFolder + "\main_config.sqf");
+    call compile preprocessFileLineNumbers (externalConfigFolder + "/main_config.sqf");
 }
 else
 {
@@ -68,6 +68,7 @@ _serverSavingOn = (_baseSavingOn || {_boxSavingOn} || {_warchestSavingOn} || {_w
 _setupPlayerDB = [] spawn {}; // blank script to feed scriptDone a non-nil value
 
 // Do we need any persistence?
+diag_log format ["[INFO] Persistence is: %1", if (_playerSavingOn) then { "ENABLED" } else { "DISABLED" }];
 if (_playerSavingOn || {_serverSavingOn}) then
 {
 	// Our custom iniDB methods which fixes some issues with the current iniDB addon release
